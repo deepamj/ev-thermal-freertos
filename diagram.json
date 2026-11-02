@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "author": "Deepa Mary Jose",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntc1",
+      "top": -100,
+      "left": 210,
+      "attrs": { "temperature": "25" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "fanLed",
+      "top": -60,
+      "left": 330,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 0,
+      "left": 330,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "pumpLed",
+      "top": -60,
+      "left": 410,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 0,
+      "left": 410,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 90,
+      "left": 330,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 90,
+      "left": 430,
+      "attrs": { "color": "green", "label": "ACK" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "" ],
+    [ "esp:RX", "$serialMonitor:TX", "" ],
+
+    [ "ntc1:VCC", "esp:3V3", "red", [] ],
+    [ "ntc1:GND", "esp:GND.1", "black", [] ],
+    [ "ntc1:OUT", "esp:D34", "green", [] ],
+
+    [ "esp:D25", "r1:1", "red", [] ],
+    [ "r1:2", "fanLed:A", "red", [] ],
+    [ "fanLed:C", "esp:GND.2", "black", [] ],
+
+    [ "esp:D26", "r2:1", "green", [] ],
+    [ "r2:2", "pumpLed:A", "green", [] ],
+    [ "pumpLed:C", "esp:GND.3", "black", [] ],
+
+    [ "esp:D27", "bz1:1", "purple", [] ],
+    [ "bz1:2", "esp:GND.1", "black", [] ],
+
+    [ "esp:D4", "btn1:1.l", "blue", [] ],
+    [ "btn1:2.l", "esp:GND.2", "black", [] ]
+  ]
+}
