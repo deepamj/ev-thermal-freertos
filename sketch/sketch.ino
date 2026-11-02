@@ -217,7 +217,9 @@ void setup() {
 
   analogReadResolution(12);
   analogSetPinAttenuation(PIN_NTC, ADC_11db);
-  analogWriteResolution(8);
+  // ESP32 Arduino core 3.x takes the pin as the first argument.
+  analogWriteResolution(PIN_FAN, 8);
+  analogWriteResolution(PIN_PUMP, 8);
   analogWrite(PIN_FAN, 0);
   analogWrite(PIN_PUMP, 0);
 

@@ -35,7 +35,7 @@ Thermal policy:
 ## Run it in the browser (recommended, no toolchain)
 
 1. Open <https://wokwi.com/projects/new/esp32>.
-2. Open the **sketch.ino** tab and paste the contents of `sketch.ino`.
+2. Open the **sketch.ino** tab and paste the contents of `sketch/sketch.ino`.
 3. Open the **diagram.json** tab and paste the contents of `diagram.json`.
 4. Press the green **Play** button and open the **Serial Monitor** (set it to **115200** baud).
 5. Click the NTC part and set its `temperature` to `50`, then `80`.
@@ -60,8 +60,8 @@ becomes `1`, and pressing **ACK** clears it.
 brew install arduino-cli
 arduino-cli core install esp32:esp32
 
-# compile (from this folder)
-arduino-cli compile --fqbn esp32:esp32:esp32doit-devkit-v1 --output-dir build .
+# compile (from the repo root)
+arduino-cli compile --fqbn esp32:esp32:esp32doit-devkit-v1 --output-dir build ./sketch
 
 # then, in VS Code with the Wokwi extension installed:
 #   Command Palette -> "Wokwi: Start Simulator"
