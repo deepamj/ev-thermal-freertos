@@ -69,26 +69,7 @@ arduino-cli compile --fqbn esp32:esp32:esp32doit-devkit-v1 --output-dir build ./
 
 `wokwi.toml` already points at `build/sketch.ino.bin`.
 
-## Why the earlier attempt stalled, and what changed
-
-| Earlier blocker | Fix in this version |
-| --- | --- |
-| Missing/unavailable components | Only Wokwi-native parts: ESP32 DevKit, NTC module, 2 LEDs, 2 resistors, buzzer, pushbutton. No I2C LCD, no external sensor library, no cloud broker. |
-| Library/board mismatch | Uses only `Arduino.h`, `math.h` and the ESP32 FreeRTOS headers that ship with the core. No third-party libraries to install. |
-| "Simulation had issues" but no visibility | Every state change is printed as CSV, and fan/pump/fault each have a physical indicator in the diagram. |
-| Nothing to show for progress | Four real tasks, a queue, a mutex, hysteresis control, a fault latch and a documented test procedure. |
-
-## What to say about it (accurate resume wording)
-
-> Built a FreeRTOS-based battery thermal-management controller simulation on
-> ESP32 (Wokwi): four concurrent tasks for acquisition, control, telemetry and
-> fault handling; queue- and mutex-protected shared state; hysteresis and
-> proportional fan control; over-temperature fault latch with acknowledge.
-
-Do not claim a real vehicle or hardware deployment. This is a simulation, and
-that is fine — the value is the RTOS architecture and the control logic.
-
-## Next steps if you want to extend it
+## Next steps for extending it
 
 - Replace the NTC module with a CAN-fed coolant-temperature signal (ESP32 +
   MCP2515) to mirror a real vehicle network.
