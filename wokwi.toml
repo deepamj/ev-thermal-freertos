@@ -1,8 +1,8 @@
 [wokwi]
 version = 1
 # Compile with arduino-cli first (see README), then run "Wokwi: Start Simulator".
-firmware = "build/esp32.esp32.esp32/sketch.ino.bin"
-elf = "build/esp32.esp32.esp32/sketch.ino.elf"
+firmware = "build/sketch.ino.bin"
+elf = "build/sketch.ino.elf"
 
 # If you build with PlatformIO instead, use:
 # firmware = ".pio/build/esp32dev/firmware.bin"

@@ -61,8 +61,8 @@
     }
   ],
   "connections": [
-    [ "esp:TX", "$serialMonitor:RX", "" ],
-    [ "esp:RX", "$serialMonitor:TX", "" ],
+    [ "esp:TX0", "$serialMonitor:RX", "" ],
+    [ "esp:RX0", "$serialMonitor:TX", "" ],
 
     [ "ntc1:VCC", "esp:3V3", "red", [] ],
     [ "ntc1:GND", "esp:GND.1", "black", [] ],
@@ -74,10 +74,10 @@
 
     [ "esp:D26", "r2:1", "green", [] ],
     [ "r2:2", "pumpLed:A", "green", [] ],
-    [ "pumpLed:C", "esp:GND.3", "black", [] ],
+    [ "pumpLed:C", "esp:GND.1", "black", [] ],
 
-    [ "esp:D27", "bz1:1", "purple", [] ],
-    [ "bz1:2", "esp:GND.1", "black", [] ],
+    [ "esp:D27", "bz1:2", "purple", [] ],
+    [ "bz1:1", "esp:GND.1", "black", [] ],
 
     [ "esp:D4", "btn1:1.l", "blue", [] ],
     [ "btn1:2.l", "esp:GND.2", "black", [] ]

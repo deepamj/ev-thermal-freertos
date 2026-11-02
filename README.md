@@ -37,8 +37,8 @@ Thermal policy:
 1. Open <https://wokwi.com/projects/new/esp32>.
 2. Open the **sketch.ino** tab and paste the contents of `sketch.ino`.
 3. Open the **diagram.json** tab and paste the contents of `diagram.json`.
-4. Press the green **Play** button and open the **Serial Monitor**.
-5. Click the NTC part, change `temperature` from `25` to `50`, then `80`.
+4. Press the green **Play** button and open the **Serial Monitor** (set it to **115200** baud).
+5. Click the NTC part and set its `temperature` to `50`, then `80`.
 
 Expected serial output (values will vary slightly):
 
@@ -61,13 +61,13 @@ brew install arduino-cli
 arduino-cli core install esp32:esp32
 
 # compile (from this folder)
-arduino-cli compile --fqbn esp32:esp32:esp32 --output-dir build .
+arduino-cli compile --fqbn esp32:esp32:esp32doit-devkit-v1 --output-dir build .
 
 # then, in VS Code with the Wokwi extension installed:
 #   Command Palette -> "Wokwi: Start Simulator"
 ```
 
-`wokwi.toml` already points at `build/esp32.esp32.esp32/sketch.ino.bin`.
+`wokwi.toml` already points at `build/sketch.ino.bin`.
 
 ## Why the earlier attempt stalled, and what changed
 
